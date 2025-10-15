@@ -20,35 +20,36 @@ Once the containers have been created and have connectivity between them, we can
 ![Step 1](./Assets/step1.png)
 
 Configuration:
-    - Method: GET
-    - URL: https://<manager ip in n8n_network>:55000/security/user/authenticate
-    - Authentication: Generic Credential Type
-    - Generic Auth Type: Basic Auth
-    - Basic Auth: You have to insert the API credentials. You can find the default values [here](https://hub.docker.com/r/wazuh/wazuh-manager)
-    - Options > Ignore SSL Issues: enable
-    - Response > Response Format: JSON
+- Method: GET
+- URL: https://<manager ip in n8n_network>:55000/security/user/authenticate
+- Authentication: Generic Credential Type
+- Generic Auth Type: Basic Auth
+- Basic Auth: You have to insert the API credentials. You can find the default values [here](https://hub.docker.com/r/wazuh/wazuh-manager)
+- Options > Ignore SSL Issues: enable
+- Response > Response Format: JSON
 
 ### Result:
     - Once you execute this step successfully, you will obtain the API token on the output.
 
 2. **Using the token:**
 ![Step 2](./Assets/step2.png)
+
 Now, you have access to the Wazuh API so we are going to perform some queries. I have configured 3 different ones. For example, here is how we can get the manager status.
 
 Configuration:
-    - Method: GET
-    - URL: https://<manager ip in n8n_network>:55000/manager/status
-    - Authentication: None
-    - Send Headers: enable
-    - Specify Headers: Using JSON
-        JSON: 
-        ```
-        {
-            "Authorization": "Bearer {{$json["data"]["token"]}}"
-        }
-        ```
-    - Options > Ignore SSL Issues: enable
-    - Response > Response Format: JSON
+- Method: GET
+- URL: https://<manager ip in n8n_network>:55000/manager/status
+- Authentication: None
+- Send Headers: enable
+- Specify Headers: Using JSON
+JSON: 
+```
+{
+    "Authorization": "Bearer {{$json["data"]["token"]}}"
+}
+```
+- Options > Ignore SSL Issues: enable
+- Response > Response Format: JSON
 
 ### Result:
 ![Query Output](./Assets/queryOutput.png)
@@ -58,4 +59,4 @@ Once you have the API token, you can configure whatever query you want. This wor
 
 This is only a technical base for lab testing. Now it is very easy to connect the API output to some LLMs to automatically analyze the output or even to configure intelligent custom alerting.
 
- I hope it proves helpful.
+I hope it proves helpful.
