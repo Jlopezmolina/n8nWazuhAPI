@@ -11,7 +11,7 @@ I have **connected both containers using an internal docker network**. You can c
 
 1. Wazuh 4.13 Docker single-node deploy: [documentation](https://documentation.wazuh.com/current/deployment-options/docker/wazuh-container.html). You will have to modify it to connect the containers to the **n8n_network** internal network.
 
-2. A n8n container created with this [docker-compose.yml](./docker-compose.yml). It was created based in the [official n8n documentation](https://docs.n8n.io/hosting/installation/docker/#starting-n8n)
+2. A n8n container created with this [docker-compose.yml](./docker-compose.yml). It was created based on the [official n8n documentation](https://docs.n8n.io/hosting/installation/docker/#starting-n8n)
 
 Once the containers have been created and have connectivity between them, we can proceed with the basic implementation.
 
@@ -32,7 +32,7 @@ Result:
 
 2. **Using the token:**
 ![Step 2](./Assets/step2.png)
-Now, you have access to the Wazuh API so we are going to perform some querys. I have configured 3 different ones but, for example, here is how we can get the manager status.
+Now, you have access to the Wazuh API so we are going to perform some queries. I have configured 3 different ones. For example, here is how we can get the manager status.
 Configuration:
     - Method: GET
     - URL: https://<manager ip in n8n_network>:55000/manager/status
@@ -53,3 +53,8 @@ Result:
     ![Query Output](./Assets/queryOutput.png)
 
 
+Once you have the API token, you can configure whatever query you want. This workflow works exactly as the API console that you find in the Wazuh Dashboard. For example, I configure it to show the last 50 logs received on the manager and to list the enrolled agents. You can also customize your workflow with a timer or a merger as I did.
+
+This is only a technical base for lab testing. Now it is very easy to connect the API output to some LLMs to automatically analyze the output or even to configure intelligent custom alerting.
+
+ I hope it proves helpful.
