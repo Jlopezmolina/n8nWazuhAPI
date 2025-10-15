@@ -40,7 +40,7 @@ Configuration:
     - Send Headers: enable
     - Specify Headers: Using JSON
         JSON: 
-        ```json
+        ```
         {
             "Authorization": "Bearer {{$json["data"]["token"]}}"
         }
