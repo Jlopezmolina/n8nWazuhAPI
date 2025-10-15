@@ -49,7 +49,6 @@ Configuration:
     - Response > Response Format: JSON
 
 Result:
-    - You might be seeing an output like this one:
     ![Query Output](./Assets/queryOutput.png)
 
 
