@@ -18,7 +18,8 @@ Once the containers have been created and have connectivity between them, we can
 ### Step by step guide:
 1. **Getting the token:**
 ![Step 1](./Assets/step1.png)
-### Configuration:
+
+Configuration:
     - Method: GET
     - URL: https://<manager ip in n8n_network>:55000/security/user/authenticate
     - Authentication: Generic Credential Type
@@ -33,7 +34,8 @@ Once the containers have been created and have connectivity between them, we can
 2. **Using the token:**
 ![Step 2](./Assets/step2.png)
 Now, you have access to the Wazuh API so we are going to perform some queries. I have configured 3 different ones. For example, here is how we can get the manager status.
-### Configuration:
+
+Configuration:
     - Method: GET
     - URL: https://<manager ip in n8n_network>:55000/manager/status
     - Authentication: None
