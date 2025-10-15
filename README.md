@@ -49,7 +49,7 @@ Configuration:
     - Response > Response Format: JSON
 
 Result:
-    ![Query Output](./Assets/queryOutput.png)
+![Query Output](./Assets/queryOutput.png)
 
 
 Once you have the API token, you can configure whatever query you want. This workflow works exactly as the API console that you find in the Wazuh Dashboard. For example, I configure it to show the last 50 logs received on the manager and to list the enrolled agents. You can also customize your workflow with a timer or a merger as I did.
